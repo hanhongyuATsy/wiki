@@ -1,0 +1,13 @@
+﻿++ 虚拟语气
+
+1.假设了也不可能成真的事-虚拟语气
+2.如何表达虚拟语气： 谓语动词“变态”
+3.if虚拟条件句：（谁跟着if，谁就是从句）
+    时间范围        if从句        主句
+    假设过去    had + done      whould + have done
+    假设现在    did(were)       could/should +done
+    假设将来    did(were)       minght +do 
+    口诀： 1.从句往前推，2.主句4+1（whould /should/could/might）,3将来同现在
+    
+4.名词性从句：demand,propose,requirement
+    主句中出现“建议，命令，要求”的词，从句要虚拟，谓语动词“should + 动词原形”

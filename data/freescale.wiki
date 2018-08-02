@@ -1,0 +1,2 @@
+﻿++ freescale
+[imax6]

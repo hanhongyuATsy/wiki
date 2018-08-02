@@ -1,0 +1,6 @@
+﻿++ 代码检查工具
+
+1.覆盖率 gcov
+2.静态检查 splint
+3.内存泄漏 valgrind
+4.性能测试 gprof

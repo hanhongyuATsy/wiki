@@ -1,0 +1,20 @@
+﻿++ 使用
+1. [开机启动及脚本运行,系统配置]
+2. [包管理器]
+3. [代理配置]
+a. do-release-upgrade  ubuntu 系统更新
+4.gcc  版本切换 ：update-alternatives: --install needs <link> <name> <path> <priority>
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 10 
+    sudo update-alternatives --config gcc  查看所有编译器及优先级  
+5.同一个终端分屏快捷键：ctrl + shjft + t
+6.常用软件列表：https://blog.csdn.net/cout__waht/article/details/73305644
+    BCloud—百度网盘Linux版
+7.介绍记笔记软件（包含wikidpad,还有一些特别的vim用法）：https://xbeta.info/2011/05
+ 
+
+
+
+
+
+
+

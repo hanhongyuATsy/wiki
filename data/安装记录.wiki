@@ -1,0 +1,12 @@
+﻿++ 安装记录
+
+1. 安装搜狗输入法，及配置。要安装fcitx，语言支持选成fcitx; 下载搜狗输入法*.deb进行安装，确保fcitx已经安装并启动。输入法配置处最下一行only show current conofig 勾选掉。
+2. 安装xmind8 ，启动失败主要是java环境
+3. 安装wikidpad 安装失败，主要是python环境。python-wxgtk2.8安装失败，可选python-3.0
+4. wifi无法使用，先要运行sudo modprobe -r ideapad_laptop，由于Windows双系统造成的；rfkill list all 可以查看
+5. 时钟同步：timedatectl set-local-rtc 1 --adjust-system-clock
+6. ubuntu 代理设置：　１．系统设置处　２．firefox 设置处　
+    ３．/etc/apt/apt.conf　文件；
+    Acquire::http::proxy "http://172.17.18.80:8080/";
+    Acquire::https::proxy "https://172.17.18.80:8080/";
+    Acquire::ftp::proxy "ftp://172.17.18.80:8080/";

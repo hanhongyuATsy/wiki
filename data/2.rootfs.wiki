@@ -1,0 +1,13 @@
+﻿++ 2.rootfs
+
+1. 命令：　rtk_hciattach -n -s 115200 ttyUSB0 rtk_h5
+2. 确认　rtl8723b_config  rtl8723b_fw　用途及使用方法 ??
+    1.   rtk_hciattach 中定义了两个文件路径，并去读取
+3. 应用命令
+    1. hciconfig -a 查看设备
+    2. hciconfig hci0 up　
+    3. hcitool scan
+    4.  l2ping 24:00:BA:72:BB:7D
+    5. hciconfig hci0 iscan  
+    6. bluez-simple-agent hci0 74:23:44:B4:82:4C 
+    7. hciconfig hci0 pscan  

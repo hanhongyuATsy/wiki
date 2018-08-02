@@ -1,0 +1,17 @@
+﻿++ 1.初窥算法
+
+算法不直接修改容器的大小，如果要添加或删除元素，则必须使用容器操作！！！
+
+1.只读算法：accumulate累加；
+    accumulate(v.begin(),v.end(), type());
+    find_first_of();在第一段范围内查找与第二段范围中任意元素匹配的元素
+2.写入元素算法：
+    a. fill(begin,end,val);
+    b. fill_n(back_inserter(vec), 10, 0)
+    c. back_inserter: 迭代器的适配器
+    d. replace(begin,end, src_val, rep_val);
+3.排序：
+    a. sort()
+    b.unique();
+    c. stable_sort();
+    d. count_if();

@@ -1,0 +1,19 @@
+﻿++ 2.再谈迭代器
+
+1.插入迭代器：
+    a. back_inserter;
+    b.front_inserter;
+    c.inserter(固定位置插入)
+2.iostream迭代器：
+    1.只定义了：自增，解引用，赋值
+    2.任何已经定义(<< 操作符)和(>> 操作符)都可定义ostream_iterator和
+    istream_iterator 迭代器
+    3.使用：？？？
+3.反向迭代器
+4.const 迭代器：
+5.迭代器分类：5种（根据所提供操作符集进行分类）：
+    1.input iterator 
+    2.output iterator
+    3.forward iterator
+    4.bidirectional iterator
+    5.radom-access iterator

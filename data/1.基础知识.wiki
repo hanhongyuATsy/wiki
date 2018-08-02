@@ -1,0 +1,27 @@
+﻿++ 1.基础知识
+１．用户登录
+    a. /etc/passwd 用户名：密码：ＵＩＤ：ＧＩＤ：注释：起始目录：shell
+    b. 脚本流程：/etc/profile -> /etc/profile.d/*  -> /home/.profile/ ->/home/.bashrc ->/etc/.bashrc
+２．进程控制主要函数
+    a.fork(); b.exec(); c. waitpid();
+３．出错处理
+    1. errno ：不会被设置为０
+    2. strerror(); perror();
+４．信号
+    1. signal() ;捕获信号
+５．时间值
+    1. 日历时间　　　time_t
+    2. 进程时间
+        a. clock_t 结构保存
+        b. 维护三种时间 1.sys;2.user;3.real
+6. man 手册结构
+    1   Executable programs or shell command
+    2   System calls (functions provided by the kernel)
+    3   Library calls (functions within program libraries)
+    4   Special files (usually found in /dev)
+    5   File formats and conventions eg /etc/passwd
+    6   Games
+    7   Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
+    8   System administration commands (usually only for root)
+    9   Kernel routines [Non standard
+    

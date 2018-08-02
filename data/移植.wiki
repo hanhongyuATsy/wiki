@@ -1,0 +1,30 @@
+﻿++ arm移植
+1.判断是Telnet登录还是串口登录:1.命令：tty; 2. LOGINTTY=$(tty|awk '{print $1}')
+2.arm ubuntu root auto 登录设置:/etc/lightdm/lightdm.conf;
+allow-guest=false  
+autologin-user=root ## set autologin username  
+autologin-user-timeout=0  
+autologin-session=lightdm-autologin  
+user-session=ubuntu
+greeter-session=unity-greeter     greeter-hide-users=true
+3.chroot作用:chroot   /root /bin/sh
+4.chmod +s :+s 就是给某个程序的所有者以suid权限,可以像root用户一样操作
+5.网络配置:1.网关2.dns:/etc/resolv.conf3.网口/etc/network/interface
+6.支持telnet ,ftp
+    1.ubuntu 无法update , apt 工具无法使用:1.source.list 问题;2.  确定板子可以连接网络，可以ping   通百度;3. ping 通后仔细看是谁返回的地址，前面ａｐｔ无法使用是连网问题
+    2.原来系统编译的工具可以拿过来直接使用(telnet ok)
+    3. ubuntu 需要安装ftp 服务器，支持ftp; ftp/telnet 均由守护进程inetd开启，配置文件为/etc/inetd.conf 
+7.触摸屏校准:
+    1、sudo apt-get install utouch 
+    2、sudo apt-get install xinput-calibrator /usr/share/X11/xorg.conf.d/
+    3、sudo xinput_calibrator（校准两次才行）
+    4.xinput-calibrator --device 进行设备选择，否则点不准确
+    5.xinput_calibrator --list
+8.ubuntu 改固定网址:
+    1. /etc/network/interfaces
+    2.修改dns 需要永久性修改DNS 使用 vim /etc/resolvconf/resolv.conf.d/base
+9.改用户和用户组的问题:
+    1. useradd siasun  ;adduser siasun   (既添加用户又创建了文件夹)
+10.原来命令权限和用户组的问题是由于电脑上解压再打包造成的
+11./etc/hosts中存放了网址的解析，计算机上网时，先访问这个文件
+12.ubuntu 开机脚本添加:update-rc.d xxx defaults 95;update-rc.d -f xxx remove;/etc/rc.local 中添加

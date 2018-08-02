@@ -1,0 +1,45 @@
+﻿++ qemu
+学习地址：https://www.cnblogs.com/hellogc/p/7482066.html
+https://blog.csdn.net/fantasy_wxe/article/details/19754979
+目标：
+    １．了解基础知识：
+    ２．会建立虚拟机引导内核及文件系统；
+    ３．用虚拟机引导uboot 及grub;
+    4. 会用虚拟机进行arm调试；????
+
+1.qemu 是一个硬件虚拟化程序,它可以通过 binary translation 模拟各种硬件平台（比如在 x86 机器上模拟 ARM 处理器）.
+2.启动内核：qemu-system-x86_64 -m 512M  # 指定内存大小　-smp 4  # 指定虚拟的 CPU 数量　-kernel ./bzImage  # 指定内核文件路径。
+    -drive format=raw,file=./disk.raw   # 指定文件作为磁盘 -append "init=linuxrc root=/dev/sda"  # 内核启动参数，指定根文件系统所在设备
+３．制作磁盘镜像：
+    a. qemu-img create -f raw disk.raw 512M     #创建一个 512M 的磁盘镜像文件
+    b.　mkfs -t ext4 ./disk.raw                 ＃使用 ext4 文件系统进行格式化       
+    c. sudo mount -o loop ./disk.raw ./img      ＃挂载磁盘镜像文件；loop 设备是一种伪设备(pseudo-device)，或者也可以说是仿真设备
+    d.sudo make modules_install  # 安装内核模块 INSTALL_MOD_PATH=./img  # 指定安装路径  
+4.system 启动：
+    a. init 启动后会扫描 /etc/inittab 配置文件;配置文件第一行：　::sysinit:/etc/init.d/rcS；
+    b. 创建rcS文件，#!/bin/sh，执行shell控制台
+    c. 添加文件系统挂载到rcS : mount -t proc proc /proc; mount -t sysfs sysfs /sys
+    d.问题：　qemu启动后为只读系统，无法修改文件；　原因，磁盘文件disk.img 已经被挂载到本地，umount 后再启动qemu就正常了。
+    e．内核引导错误总结：
+        １．Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0, 0)　＃所以无法挂载根文件系统
+        ２．Kernel panic - not syncing: No working init found　＃内核启动已经接近完成了，找不到 init 进程
+５．arm应用：
+    １．qemu-arm用来执行ARM二进制文件，qemu-system-arm用来启动AMR OS
+    ２．sudo apt-get install gcc-arm-linux-gnueabihf　#安装arm交叉编译工具链
+    ３．在Qemu中运行U-Boot　：qemu-system-arm -M versatilepb -nographic -kernel u-boot.bin;            其中-M指定模拟的设备型号，这里是versatile的pb版设备，-kernel对应启动程序，这里是编译好的Linux内核，-nographic表示直接将输出到当前终端。
+    ４．error:pulseaudio: set_sink_input_volume() failed
+        此时先按CTRL+A组合键并且放手后再按X键退出QEMU。
+    5.qemu-system-arm -M ? 查看支持单板类型
+    6.uboot 开发环境搭建：
+    a.进入U-Boot 源文件目录，然后执行：
+                export ARCH=arm 
+                export CROSS_COMPILE=arm-linux-gnueabi-
+                make vexpress_ca9x4_defconfig
+                make
+    b. qemu 运行uboot 
+        qemu-system-arm \
+                    -M vexpress-a9 \
+                    -nographic \
+                    -m 512M \
+                    -kernel u-boot
+6.qemu arm调试：

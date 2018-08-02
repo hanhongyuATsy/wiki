@@ -1,0 +1,9 @@
+﻿++ 新学语法
+
+1. enum class{} 枚举作用域
+2. expliclt 禁止隐式类型转换  防止编译器优化
+3. istringstream类用于执行C++风格的串流的输入操作。
+    istringstream is(str);     
+    string s;  
+    while(is>>s) ; 用于将句子按单词分离
+4.const 对象，不可以调用非const成员函数

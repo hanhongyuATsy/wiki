@@ -1,0 +1,13 @@
+﻿++ 编译
+
+编译：
+1. make xxx_config 的 xxx_config 在Makefile中, config目录下有很多各种ＣＰＵ及板子的config
+2. make arch=ARM CROSS_COMPILE=arm-none-linux-gnueabihf-  make进行编译，选择arm平台及编译器就可以
+3. 如果找不到dtc ,需要安装device-tree-compiler; apt-get install device-tree-compiler
+
+阅读代码结构：
+1. include/configs/xxxx.h   /board/freescale/xxxx.c
+2．uboot.lds 脚本确定代码结构
+3．u-boot.bin:是可执行的二进制文件，你烧在板子Flash中的u-boot就是这个。是uboot映像的原始二进制文件
+    u-boot.map：你把它打开不就知道是干啥的了吗？
+    u-boot:是ELF格式的uboot映像文件，也是可执行的。

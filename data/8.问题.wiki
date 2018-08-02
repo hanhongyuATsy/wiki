@@ -1,0 +1,20 @@
+﻿++ 8.问题
+
+1.git clone 失败：
+    ssh-keygen -t rsa -C "hanhongyu@travelsky.com"， 使用ssh生成密码
+    将 (/home/hhy/.ssh/id_rsa):生成的id_rsa.pub贴到服务器网页
+    git：使用ssh下载即可以：
+    git clone ssh://git@rdgit.travelsky.com:7999/dfare/dbestbuy.git
+2. git config --list  查看当前分支信息
+3. git rebase与git merge 区别
+4. git fork 作用与用途：
+    git clone 是将github仓库中的项目克隆到自己本地电脑中
+    fork是直接访问github网站，在项目页面中点击fork，服务器端的复制
+5.Jenkins + Gerrit + Git
+6.git remote add origin git@github.com:hanhongyuATsy/design.git 失败？
+    当新建立任务时网站上提示的添加命令是用git的，但是由于本地带代理加的https的，上行命令失败，要使用http的网址；
+    git remote add origin https://github.com/hanhongyuATsy/design.git
+    
+
+
+    

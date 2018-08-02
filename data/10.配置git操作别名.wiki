@@ -1,0 +1,5 @@
+﻿++ 10.配置git操作别名
+
+1.git config --global alias.st status (status 简称 st)
+2.git config --global alias.co checkout (checkout 简称 co)
+3.git config --global alias.ci commit (commit 简称 ci)

@@ -1,0 +1,7 @@
+﻿++ 代理配置
+
+i. 代理配置：
+    1./etc/apt/文件夹下的apt.conf文件 ；后apt 可以使用
+    Acquire::http::proxy "http://172.17.18.80:8080/";
+    Acquire::https::proxy "https://172.17.18.80:8080/";
+    Acquire::ftp::proxy "ftp://172.17.18.80:8080/";

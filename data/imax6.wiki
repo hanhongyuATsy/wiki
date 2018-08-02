@@ -1,0 +1,5 @@
+﻿++ imax6
+1.dts:
+a. <iomax 0 23 10>   引脚开始， 地址偏移，  值
+b. gpio6 gpio[17]  170 * 4 = 680 [2A8] (datasheet 的偏移地址)
+c.  gpio5[4] = 4*32 +4

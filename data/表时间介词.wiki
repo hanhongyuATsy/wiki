@@ -1,0 +1,9 @@
+﻿++ 表时间介词
+
+at/on/in       在...时间点/时间上/时间内(大的范围)      at 8 clock / on /in 1992 ;
+befor/after    在...之前/之后
+form/since      自从...时间
+by/until       截止到（直到）...时间
+for            持续...时间
+during          在...期间
+

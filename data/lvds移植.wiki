@@ -1,0 +1,11 @@
+﻿++ lvds移植
+
+1 .dts 中参数设置
+    1.  &ldb ：1. 改后分辨率有改变
+    2.  lvds-channel@0
+    3. mxcfb1: fb@0
+2.kernel ：
+    1. driver/veido/mxc/ldb.c  fb_videomode mxcfb_ldb_modedb[]
+3.uboot ：
+    1.  参数：video=mxcdi1fb:RGB666,SVGA di1_primary ldb=di1'
+4.液晶屏RGB参数：每个屏幕匹配的rgb数值不一样，普遍是666，568，24这三个值

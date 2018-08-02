@@ -1,0 +1,31 @@
+﻿++ svnserver_config
+
+1.authz：负责账号权限的管理，控制账号是否读写权限
+  passwd：负责账号和密码的用户名单管理
+  svnserve.conf：svn服务器配置文件
+2.authz:中 加入用户权限，
+    1.groups下 pricGroup = pricSvn，user1 （等号后为用户名，用逗号分隔）
+    2./ 下 @pricGroup = rw
+    passwd:中加入用户名密码，pricSvn = 123
+3. 生成passwd 和authz，和重启SVN服务的脚本
+#cat passwd >>>> $SVN_BASE_DIR/passwd
+F_AUTHZ="./authz"
+F_PASSWD="./passwd"
+USER_NAME=`cat ./user_name`
+
+rm $F_AUTHZ
+rm $F_PASSWD
+#echo $USER_NAME
+echo "[aliases]" >> $F_AUTHZ
+echo "[groups]"  >> $F_AUTHZ
+echo "pricGroup = pricSvn,$USER_NAME"  >> $F_AUTHZ
+echo "[/]"  >> $F_AUTHZ
+echo "@pricGroup = rw " >> $F_AUTHZ
+
+echo "[users]" >> $F_PASSWD
+cat passwd_file >> $F_PASSWD
+cp $F_PASSWD $SVN_BASE_CONF_DIR
+cp $F_AUTHZ $SVN_BASE_CONF_DIR
+
+svnserve -d -r $SVN_BASE_DIR
+ 

@@ -1,0 +1,35 @@
+﻿++ 顺序容器操作
+1.添加元素：
+    push_back();末尾添加元素；
+    push_front();前端添加元素；适用deque,list容器；
+    insert();
+    **迭代器失效风险：任何添加插入会引起迭代器失效，使用前必须重新获取
+2.关系操作：比较容器必须具有相同的容器类型和元素类型
+3.大小操作：
+    c.size() :返回类型为c::size_type
+    c.empyt() :返回是否为0 的布尔值
+    c.resize() : 如果resize() < size();则多余的元素会被删除；resize()会使迭代器失效
+4.元素访问：使用越界的下标和空容器的front或back都会导致程序出现严重错误
+    secv[0] = secv.at(0):at 成员函数和下标相似，但出错会抛out_of_range异常
+5.删除操作：
+    1.pop_back;pop_front;不返回删除的元素值，返回void;
+    2.erase()的正确用法是先用find找到元素，再 用erase删除，返回迭代器的下一个元素；
+    3.删除所有元素用clear();
+6.赋值与swap:
+    1. 赋值：c1.erase(c1.begin(), c1.end());c1.insert(c1.begin(),c2.begin,c2.end)
+    2. swap:交换内容，c1.swap(c2),交换c1和c2内容；不会使迭代器失效
+    3. c.assign(b,e) :重置c元素，将迭代器b和e标记的范围所有元素复制到c
+    4. = :容器类型都相同；swap():容器可不同，但类型必相同； assign；类型兼容即可
+7.子类和父类是否属于兼容数据类型（类似于int和char）:
+    string = char * 正确；
+    父类 = 子类  正确；
+    char * =  string 错误；
+    子类 = 父类 错误；
+8.vertor:
+    capacity():获取需要分配空间前能存储的元素个数
+    reserve()：应该预留多少个存储空间
+
+
+
+
+    

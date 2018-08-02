@@ -1,0 +1,13 @@
+﻿++ map类型
+
+1.map是键值对集合，可以理解为关联数组，可使用键作为下标来获取一个值
+2.键类型必须定义 < 操作符，且可以正常工作；
+3. map<k,v>::key_value: 键类型；
+  map<k,v>::map_value:关联值类型；
+  map<k,v>::value_type:pair类型；pair<consgt k,v>
+4.map下标访问不存在的元素会导致map容器中添加一个新元素  word[cnt] = 1；
+5.map下标返回的类型(map_value)与解引用返回的类型(value_type)，不同
+6.简化insert函数参数；1. make_pair; 2.typedef map<k,v>::value_type valtype;
+7.map元素查找与使用：m.count();m.find();
+
+

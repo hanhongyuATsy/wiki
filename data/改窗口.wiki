@@ -1,0 +1,7 @@
+﻿++ 改窗口
+
+1. res  N  改高度为N
+2. vertical res N 改宽度为N
+3. vs 打开新窗口
+4. res + N 窗口高度增加N
+5. new 打开新窗口，横向

@@ -1,0 +1,18 @@
+﻿++ 2.unix标准及限制
+1. pathconf(); fpathconf(); 查看限制
+2. awk 使用
+    1.awk是用于在linux/unix下对文本和数据进行处理
+    2.awk脚本来读取这个数据文件，进而生成查询相应配置的C代码，一样以来程序就和数据解耦了
+3. gcc 编译流程
+    1.预处理，gcc的-E选项  gcc -E test.c -o test.i
+    2. 编译，输出的汇编代码 -S  gcc -S test.i -o test.s
+    3. 汇编，gcc -c test.s -o test.o  as -o hello.o hello.s
+    4. 链接,  gcc test.o -o test  ld -o hello.exe hello.o
+4. 功能测试宏
+    1. cc -D_POSIX_C_SOURCE=200809L file.c
+    2. file.c 开头添加　#define _POSIX_C_SOURCE 200809L
+    3. 目的：编译一个程序时只希望与POSIX协议相关，不与实现的定义常量冲突
+5.基本数据类型
+    1. time_t pid_t clock_t
+    2. 大多数以_t结尾，　用Ｃ的typedef 定义
+    

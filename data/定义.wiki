@@ -1,0 +1,5 @@
+﻿++ 定义
+
+1.associative container:支持通过键来高效的查找和读取元素；
+2.associative 和 sequential区别在于：associative 通过key存储和读取元素，而squential则通过元素在容器中的位置顺序存储和访问元素。
+3.C++ STL中标准关联容器set, multiset, map, multimap内部采用的就是一种非常高效的平衡检索二叉树：红黑树

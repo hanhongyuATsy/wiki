@@ -1,0 +1,6 @@
+﻿++ 编码
+
+１．使用locale命令
+２．/etc/sysconfig/i18n
+３．red hat发行版修改系统语言编码在 /etc/sysconfig/i18n中。
+４．而ubuntu中此配置在 etc/default/locale 中。

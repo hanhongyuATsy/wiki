@@ -1,0 +1,6 @@
+﻿++ 2.函数调用其他程序
+
+1.通过os.system和subprocess.call()函数调用其他程序
+使用方法：cmd = "ls -l " + path
+    print(cmd)
+    os.system(cmd)

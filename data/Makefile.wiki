@@ -1,0 +1,34 @@
+﻿++ Makefile
+0.学习网站：https://www.jianshu.com/p/523726ef5c3b
+0.标准模板：https://github.com/mbcrawfo/GenericMakefile
+1.调试记录：
+    如果报错提示“xxx.h”找不到，可根据提示单独编译，一般的问题都是名字拼写错误
+2.为了“即能使用隐晦规则．又能包含了头文件”，我们把每个源文件都gcc -MM下把输出从定向到一个对应的.d文件，后把这个.d的内容在包含到这个Makefile里。
+3.一种makefile基本框架：
+    a.通过dirname.src 定义每个目录所包含的cc的目标文件
+    COMMON_OBJS=$(SRC_DIR)/Common/b64.o    
+    b.主Makefile中通过，include $(SRC_DIR)/dirname.src，将目标文件引入makefile;
+    c.根据dirname.src中的宏目标，通过MMD选择，生成自动生成依赖的*.d文件
+    $(COMMON_OBJS): %.o: %.cc
+	$(CXX) $(CPPFLAGS) $(COMMON_CXXFLAGS) -MMD -c $< -o $@
+	d.将生成的 .d 文件包含进Makefile -include $(OBJS:.o=.d)
+	e.打包成静态库
+	libcommon.a: $(COMMON_OBJS)
+	$(AR) rucs $@ $(COMMON_OBJS)
+	f.通过静态库依赖，编译动态库最终目标文件
+	libpat.so.$(PAT_VERSION): libcommon.a liberrorrequest.a librequestbase.a $(PAT_OBJS)
+	$(CXX) -shared -o $@ $(PAT_OBJS) $(PAT_LDFLAGS)
+	e. 生成动态库添加版本号：makefile中的宏，可以用脚本命令获得git版本号自动添加
+4.基本语法：
+    1.变量，Makefile里可以定义变量，使用时用$(变量)获得变量的值
+    2，wildcard ：wildcard返回已经存在的、使用空格分开的、匹配此模式的所有文件列表；
+    SRCS = $(wildcard .cpp)；则SRCS的值就是“circle.cpp square.cpp test.cpp"；
+    notdir ：notdir的作用就是去掉目录信息，使得文件列表里只有文件名
+    patsubst：patsubst起到替换的作用；SRCS = $(wildcard .cpp)
+    OBJS = $(patsubst %.cpp, %.o, $(SRCS))；则OBJS的值就是“circle.o square.o test.o”
+    3.自动化变量：
+    $@ 规则的目标文件名
+    $^ 规则的依赖文件列表
+    $< 规则的第一个依赖文件
+    4.include的作用是包含文件，这里就是那些.d文件的内容
+    5..PHONY  命令永远不会 执行

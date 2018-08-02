@@ -1,0 +1,20 @@
+﻿++ system install
+
+1.系统环境搭建：
+a. 需要的常用软件安装：
+    1.wikidpad
+    2.input method
+    3.xmind
+    4.starUML
+b. 开发工具：
+    1.gcc
+    2.cmake
+    3.vim
+    4.git
+    5.svn
+c. 服务配置：
+    1.tftp
+    2.ftp
+    3.nfs
+d.环境配置：
+

@@ -1,0 +1,3 @@
+﻿++ 7.将master 回滚到某次提交
+
+git reset --hard  commitid

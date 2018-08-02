@@ -1,0 +1,102 @@
+﻿++ Cmake
+
+CMake_培训
+0. 课程目标：
+    1.可以根据课件编写建立简单cmake工程,掌握cmake基本语法，命令和构建方法.
+    2.可以把现有的Makefile工程改写成cmake工程
+    3.结合一个完整的实例，了解cmake 构建一个工程，包含单元测试，覆盖率查看，物理结构框架。
+
+1 .简介：
+	CMake 是一款工程构建工具。Cmake 并不直接建构出最终的软件，而是产生标准的建构档（如 Unix 的 Makefile 或 Windows Visual C++ 的 projects/workspaces），然后再依一般的建构方式使用。官方网站是 www.cmake.org,可已访问进行深入学习。
+
+2 .特点：
+	优点： 1。开源项目； 2。跨平台 ；3。 可以管理大型项目；4。Cmake 的工具链简单,构建速度快；
+	缺点： 1。须要编写CMakeLists.txt 学习cmake 语言和语法。 2。cmake 跟已有体系的配合并不是特别理想,比如 pkgconfig;
+3 .使用：
+    a. 安装： 
+        源码编译：$./bootstrap && make && make install
+    b. 适用：
+	    1。目前只适用C/C++ 语言 2.如果你的工程只有几个文件,直接编写 Makefile 是最好的选择.
+    c. 目录组成：
+        --project_root
+            --src
+            --lib
+            --source
+            --unit_test
+            --build
+                --/*/CMakeFiles/librsa.dir/**.o
+                --CMakeCache.txt
+    d. 文件说明：
+        1. CMakeLists.txt -- 相当Makefile
+        2.cmake第一次运行的时候，它将产生一个文件叫CMakeCache.txt，该文件可以被看作一个配置文件，
+        它里面的内容就像传递给configure命令的参数集，CMake GUI可以帮你很容易修改它，当然也可以直接对该文件做修改；
+4 .语法:
+    1.#注释
+    2.变量:使用set命令显式定义及赋值，在非if语句中，使用${}引用，if中直接使用变量名引用；
+    后续的set命令会清理变量原来的值；
+    3.指令(参数 1 参数 2...)参数使用括弧括起,参数之间使用空格或分号分开;
+    command (args ...)  #命令不分大小写，参数使用空格分隔，使用双引号引起参数中空格
+    4.set(var a;b;c) <=> set(var a b c)  #定义变量var并赋值为a;b;c这样一个string list
+    5.Add_executable(${var}) <=> Add_executable(a b c)   #变量使用${xxx}引用
+    6.条件语句：if(var) #var 非empty 0 N No OFF FALSE... #非运算使用NOT
+       …else()/elseif() … endif(var)
+    7.循环语句 Set(VAR a b c) Foreach(f ${VAR})  …Endforeach(f)
+    8.循环语句 WHILE() … ENDWHILE()
+5. 构建：
+	一般使用外部构建（out-of-source 外部编译,对于原有的工程没有任何影响,所有动作全部发生在编译目录）
+	1.建立 build 目录.
+	2.进入 build 目录,运行 cmake ..  (ccmake -- 图形界面命令)
+	3.运行 make 构建工程
+6.命令：
+    1. project(cmake_train)  设置工程名
+    2. set(SRC_LIST demo.c)  设置变量名
+	3. add_executable(demo ${SRC_LIST})  添加生成目标
+    4. add_subdirectory(lib)    添加目录
+	5. message (${PROJECT_SOURCE_DIR}) 打印变量信息
+	6. include_directories(${PROJECT_SOURCE_DIR}/include) 包含代码路径; 相当于指定gcc的-I参数
+	7. target_link_libraries(demo librsa crypto) 编译连接目标库 相同于指定-l参数
+	8. add_definitions(-DOS_LINUX) 添加宏 add_definitions("-Wall -lpthread -g") 
+	9. add_library(librsa ${LIB_SRC}) 添加生成库
+	10. set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib) 设置生成文件目录
+    11.link_directories：动态链接库或静态链接库的搜索路径，相当于gcc的-L参数
+       eg: link_directories (${HELLO_BINARY_DIR}/Hello)     #增加Hello为link目录
+       link_directories仅对其后面的targets起作用
+    12.option(address "xxx" ON) 如果用户没有定义过address,那我address的默认值就是ON,            
+    13. ADD_LIBRARY(libname [SHARED|STATIC|MODULE][EXCLUDE_FROM_ALL] source1 source2 ... sourceN)
+7.变量:
+	cmake 中有一些预定义变量, 如上面命令中用到的LIBRARY_OUTPUT_PATH等
+	列出几个常用的：
+	1.PROJECT_SOURCE_DIR 工程的根目录
+	2.PROJECT_BINARY_DIR 运行cmake命令的目录,通常是${PROJECT_SOURCE_DIR}/build
+	3.CMAKE_LIBRARY_PATH 环境变量
+
+8.正则表达式
+    很多CMake命令如if，会使用正则表达式作为参数，下面是正则表达式会用到的特殊字符：
+    a. ^：匹配一行或一个字符串的开头
+    b. $：匹配一行或一个字符串的结尾
+    c. .：匹配单个字符
+    d. []：匹配方括号中任意字符或字符串
+    e. [^]：匹配不是方括号中的字符或字符串
+    f. [-]：匹配在dash任意一边的字符
+
+9.单元测试：
+    1. 根目录CMakeList.txt 添加 gcov支持：
+        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+        SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+        SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+
+    2.  cpputest CMakeList.txt 文件
+        include_directories(${PROJECT_SOURCE_DIR}/lib)
+        include_directories(${CPPUTEST_SOURCE_DIR}/lib)
+        set(SRC_LIST test.cpp)
+        add_executable(test ${SRC_LIST})
+        target_link_libraries(test  CppUTest)
+	
+10.问题：
+	1。是否支持多目标编译？ 
+	答案： 支持。 add_executable(demo ${SRC_LIST})  添加多个目标即可
+	2. 是否支持指定目录编译？
+	答案： 支持。 build可以建到任何目录下，源文件也可放到任何目录下，只要后面跟全路径即可， 如cmake /home/siasun/rsa/build
+    3.怎样获得一个目录下的所有源文件
+    答案： aux_source_directory(<dir> <variable>)
+    将dir中所有源文件（不包括头文件）保存到变量variable中，然后可以add_executable (ss7gw ${variable})这样使用。

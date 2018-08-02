@@ -1,0 +1,9 @@
+﻿++ 8.标准IO库
+0. fstream 读写已命名文件的流对象；stringstream ：读写字符串流对象；都继承了iostream；
+1.标准库类型不允许做赋值或复制操作，因此流对象不能存储在vector（容器）中，也不能作为形参或返回值。？？
+2.条件状态：badbit:系统级故障，不可恢复；failbit：可恢复错误;eof：文件结束符；
+3.缓冲区：endl：添加换行符并刷新；flush:不加任何字符刷新；ends：插入NULL并刷新；unitbuf:刷新所有输出；
+4.文件流对象使用：ifstream infile(i_file_name.c_str());创建文件流绑定到i_file_name文件上；
+5.文件模式：模式是文件属性不是流属性
+
+

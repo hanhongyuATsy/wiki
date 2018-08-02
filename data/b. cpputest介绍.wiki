@@ -1,0 +1,30 @@
+﻿++ b. cpputest介绍
+0. cpputest 下载安装: github
+        1. 命令：
+            -v ：查看详细信息
+            -r# : 重发多次执行
+            -g: 只运行指定名字的组
+            -n: 只运行指定名字的test
+            -c: 结果信息加颜色
+        2.Test宏：
+            TEST(group, name) 定义一个test
+            TEST_GROUP(group) 声明一个group
+            void setup() 组声明中的方法，test前调研
+            void teardown() 组声明中的方法，test后调研
+        3. 断言：
+            CHECK  检查布尔结果
+            CHECK_TRUE  检查结果真
+            CHECK_EQUAL  检查是否相等
+            STRCMP_EQUAL  比较字符串是否相等
+            OOUBBLES_EQUAL  比较浮点数
+            FAIL  返回失败
+        4. 构建办法：
+            0. 利用宏区分是否使用单元测试 CFLAGS  += -D CPPUTEST 
+            1. Makefile  加头文件 -I$(CPPUTEST_HOME)/include 
+            2. Makefile  加库文件 -L$(CPPUTEST_HOME)/lib -lCppUTest -lCppUTestExt
+            3. 定义 TEST_GROUP(group_name)
+            4. 定义 TEST(group_name, test_name)
+            5. #include <CppUTest/CommandLineTestRunner.h>
+               #include <CppUTest/TestHarness.h>
+            6. extern “C” {}
+            7. main 函数 调用CommandLineTestRunner::RunAllTests( argc, argv );

@@ -1,0 +1,6 @@
+﻿++ 2.针对某次提交(commitid)创建分支
+
+1.git checkout commitid （既可以把分支切换为commitid这个分支）
+2.git checkout -b xxx (创建XXX分支并切换到XXX分支)
+3.git rev-parse --short HEAD(获取short commit ID )
+4.git rev-parse HEAD （获取完整commit id ）

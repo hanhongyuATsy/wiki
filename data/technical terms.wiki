@@ -1,0 +1,14 @@
+﻿++ technical terms
+yocto ; 一个开源社区， 帮助助开发者创建基于linux内核的定制系统
+window 动态磁盘：没又分区表， 转为动态硬盘数据会被格式化
+pitch 俯仰 Yaw 徧行 Roll 滚转角
+boost  c++ 开源库
+RSA :一种加密算法
+奈奎斯特定理：Cmax=2×B×log2L
+香农定理：Cmax=B×log2（1+（S/N））
+波特率（baud rate）：波特率指的是信号每秒钟电平变化的次数
+比特率（bit rate）：比特率是信号每秒钟传输的数据的位数
+带宽（bandwidth）：一般信道都有一个最高的信号频率，和最低的信号频率只有在这两个频率之间的信号才能通过这个信道，这两个频率的差值就叫做这个信道的带宽，单位是Hz
+容量（capacity）：最高的比特率就叫做这个信道的容量，单位是bp
+backward compatibility：向上兼容
+Git+Gerrit+Jenkins 持续集成系统安装与升级

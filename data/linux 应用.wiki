@@ -1,0 +1,4 @@
+﻿++ linux 应用
+
+/sys/bus/iio/devices/iio\:device0/in_voltage*_raw  无法读取 
+scan_elements / in_voltage1_en 是否可以读写？(可以读写保存)

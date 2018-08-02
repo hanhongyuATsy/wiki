@@ -1,0 +1,8 @@
+﻿++ c++
+[C++ Primer]
+[effective C++]
+[C++程序设计实践与技巧]
+[自己总结 ]
+api手册地址：http://www.cplusplus.com/
+菜鸟学习网站：http://www.runoob.com/
+静态检查工具：cppcheck:https://blog.csdn.net/pbymw8iwm/article/details/45310455

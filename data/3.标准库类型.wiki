@@ -1,0 +1,27 @@
+﻿++ 3.标准库类型
+一、string
+1.string 类型与字符串字面值：1. 他们不是同一个类型，如有些c语言中open的值为字符指针，
+如果穿string类型会报错，因为c语言不识别string类型。
+2.string cin与getline区别: cin:1.忽略有效字符前面的所有空白符。2.再次遇到空白符，读取终止
+getline:1. 不忽略有效字符前的空白符 2. 读取字符到出现换行符
+3.string::size_type：size()操作返回的类型值(目的使用库时与机器无关)。不要把size()返回值付给一个int变量
+4.string获取字符：下标操作符[]；s[0]代表第一个字符；s【size()-1】代表最后一个字符
+二、vector
+1.vector 是同一种类型的对象的集合，每个对象都有一个对应的整数的索引。vector不是一种数据类型，而是一个类模板
+2.vector 对象动态增长：vector对象的重要属性在于可以在运行时高效的添加元素。虽然可以对给定的元素的vector预先
+分配内存，但有效的方法是先初始化一个空vector,再动态的添加元素。
+3.vector类型总是包括vector的元素类型：vector<int>::size_type(ok); vector::size_type(error);
+4.c++程序员习惯于优先选用!=而不是<来编写循环？？？
+5.下标操作不添加元素：for(vector<int>::size_type ix = 0; ix != 10; ++ix) ivec【ix】 = ix //error
+                      for(vector<int>::size_type ix = 0; ix != 10; ++ix) ivec.push_back(ix) //ok;
+三、iterator
+1.只有少量的容器支持下标操作，而标准容器都定义了相应的迭代器类型
+2.iterator可以使用解引用操作符来访问迭代器所指向的元素 *iter;
+3.const_iterator类型，类型只能用于读取容器内元素，不能改变其值。普通iterator类型解引用得到非const值，const_iterator类型解引用，可以得到一个指向const对象的引用。
+四、bitset
+1.bitset类是一种类模板： bitset<32> bitvec;
+2.初始化：bitset <16> bitvec(0xffff);string strval("11001100"); bitset<32> bitvec4(strval)
+
+
+
+

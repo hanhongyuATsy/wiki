@@ -1,0 +1,48 @@
+﻿++ 2.标准IO
+1. 标准ＩＯ处理了很多细节，例如缓冲区分配，等，如果不较深入了解Ｉ／Ｏ函数库的操作也会带来一些细节
+2. 流和FILE实体
+    1.流定义
+        1.当我们打开或创建了一个文件，我们说我们有一个流和该文件关联。
+        2.stream支持单字节字符集和多字节字符集。stream的属性orientation决定使用单字符集还是多字符集。
+    2.改变流定向
+        1. int fwide(FILE *fp, int mode); 1. mode > 0 2. mode < 0 3. mode = 0 4. 设置流的定向
+        2. freopen 1. 清除流的定向
+    3.缓存
+        1.缓存（buffering）的作用是为了尽可能少地调用read和write系统调用
+        2. int fflush(FILE *fp);
+        3. 我们可以使用函数setbuf和setvbuf函数更改流的缓存机制。
+        4. void setbuf(FILE* restrict fp, char* restrict buf);
+        5.int servbuf(FILE *restrict fp, char* restrict buf, int mode, size_t size);
+    4.打开流
+        1.FILE *fopen(const char *restrict pathname, const char* restrict type);
+        函数fopen打开指定的文件；
+        2.FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);
+        函数freopen函数打开指定的文件到指定的流上，如果该流已经被打开，则先关闭该流
+        3.FILE *fdopen(int fd, const char *type);
+        fdopen输入一个文件描述符，将描述符关联到一个标准IO流上
+        4.int fclose(FILE* fp);
+    5.读写一个流
+        1.一次一个字符读写
+        2.一次一行读写：使用函数fgets和fputs
+        3.每次读写固定长度的数据，使用函数fread和fwrite
+        4.int ferror(FILE* fp);
+        5.int feof(FILE* fp); 
+        6.void clearerr(FILE* fp);
+    6定位流
+        1.函数ftell和fseek。将文件的当前偏移位置存储在long integer型变量中；
+        2.函数ftello和fseeko。将文件的当前偏移量存储在off_t型变量中
+        3.函数fgetpos和fsetpos。使用数据类型fpos_t记录文件的当前偏移量。
+        4.void rewind(FILE* fp);功能是将文件内部的指针重新指向一个流的开头
+        5.int fgetpos(FILE* restrict fp, fpos_t *restrict pos);
+        fgetpos函数保存当前文件偏移量到参数pos中
+        6.int fsetpos(FILE* fp, const fpos_t pos);
+        fgetpos得到的pos可以用来使用fsetpos设置当前文件偏移量到之前的位置。
+    7.格式化输入输出
+        1.printf输出到标准输出；
+        2.fprintf输出到指定的流中
+        3.dprintf输出到指定的文件描述符中
+        4.sprintf将格式化字符串写入到指定的buffer数组中
+        5.snprintf防止越界，在springf的参数中增加了buffer的大小参数，所有越界写入的字符都被忽略
+        
+    
+    

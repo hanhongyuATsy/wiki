@@ -1,0 +1,9 @@
+﻿++ 2. git 常用命令
+
+1. git clone ssh://git@rdgit.travelsky.com:7999/dfare/dreshop.git 
+2. git status 查看状态
+3. git commit -m "提交信息"
+4. git push --set-upstream origin xxx 提交修改代码到xxx 分支
+5. 创建远程分支 git checkout -b +分支名字
+6. 删除远程分支：git branch -d +分支名字
+7. 打tag, git tag -a +名称

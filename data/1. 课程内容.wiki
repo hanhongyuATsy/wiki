@@ -1,0 +1,15 @@
+﻿++ 1. 课程内容
+
+    a. 理论内容：
+        1.明确单元测试功能，必要性。TDD介绍。
+        2.学习cpputest的 命令行， 宏，断言的使用
+        3.cpputest 编写方法，运行流程，代码结构
+        4.cpputest 插件介绍(a. testplugin 插件；b. mock 插件)
+    b. 实例内容：
+        0. zune bug 程序 ---- 介绍单元测试的必要性
+        1. helloworld 程序 ---- 介绍cpputest 构建，编译， Makefile的改写 ，
+        代码的执行流程
+        2. add 程序 ---- 介绍断言（CHECK）使用, 命令使用 -v 查看详细信息
+        3. struct student 程序 ---- 介绍内存泄漏检查插件
+        4. cpputest_try 程序 ---- 介绍 mock 使用
+        5. rsa_cmake  程序  ---- 介绍 单元测试点

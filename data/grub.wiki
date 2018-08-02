@@ -1,0 +1,8 @@
+﻿++ grub
+
+a. gurb-install 
+b. grub-mkconfig -o /mnt/gurb/grub.cfg
+c. grub-set-default
+d. grub 错误： embeding is not  possible
+    1. U盘格式化错误导致
+    2. 加入--force

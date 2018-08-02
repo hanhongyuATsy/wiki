@@ -1,0 +1,32 @@
+﻿++ 4.个人总结
+
+file://E:\学习\MyWiki\xmind\
+github网页：https://github.com/
+名：hanhongyuATsy
+密码：hhy_6693
+git config --list
+http.proxy=http://172.17.18.80:8080/
+https.proxy=https://172.17.18.80:8080/
+user.name=hhy
+user.email=hhy@example.com
+
+git 全局变量设置：注意 user.name 和 “hhy” 中间有空格
+ git config --global user.name "hhy"
+ git config --global user.email "scuhanhongyu@sina.com"
+ 
+svn迁移到git :https://blog.csdn.net/u010648555/article/details/52831194
+
+命令：
+    １．切换到远程分支：git checkout -b dev origin/dev
+    ２．上传本地分支到远程分支： git push origin feature_dbhanhongyu_front
+    ３．删除远端分支：git push origin :feature_dbhanhongyu_front
+    ４．删除本地分支：git branch -d feature_dbhanhongyu_front
+    5.撤销缓冲区更改：git reset HEAD file
+    6.撤销对文件的修改：git checkout --filename
+    7.回退版本：git reset --hard aa3ed46c051c3eacae9990cea52ce84b719a8fd3
+    8.git报错：git clean -d -fx 
+    9. git add -A . 添加所有改变的文件
+    10. git add -A 添加所有内容
+    11. git add . 添加新文件，和编辑过的文件
+    12. git diff d12bd72239000d0e268a9ee324b94cb65dc5198f 1b9f31947666b0ab319039b45a85a4584ec9ca04 --stat 比较两个版本或分支的不同的文件；
+    13. git checkout d12bd72239000d0e268a9ee324b94cb65dc5198f filename

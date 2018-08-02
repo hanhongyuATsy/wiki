@@ -1,0 +1,21 @@
+﻿++ 2.音频驱动架构
+1. 查看声卡设备：
+    a. ls -l  /dev/snd/
+    b. 查看声卡 aplay -l
+    c. cat /proc/asound/devices 
+2. 三个包:
+    a. alsa-driver-1.0
+    b. alsa-lib
+    c. alsa-utils
+3.硬件接口：
+    AC97 五线接口
+    IIS 四线接口
+    PCM 四线接口
+4.音频库：
+    SDL; ALSA;
+5. 命令：
+    a. alias
+    b. arecord -d 录音
+    c. aplay
+    d. /dev/mixer
+    e. /usr/share/alsa/alsa.conf

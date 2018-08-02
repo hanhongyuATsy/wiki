@@ -1,0 +1,16 @@
+﻿++ 抽象名词
+
+1.想不出长相的词
+fact                    事实  真相
+point                   要点
+belief                  信仰
+faith                   信仰，信念
+claim                   权利，要求
+report                  报告，报道
+worry                   担心，烦恼
+advantage               优势，利益
+evidence                证据，迹象
+indication              指示，迹象
+implication             后果
+probability             可能性，几率
+requirement             要求

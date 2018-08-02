@@ -1,0 +1,18 @@
+﻿++ 断言
+
+    ASSERT_* 检查失败时退出当前函数，和当前案例
+    EXPECT_* 检查失败时继续往下执行
+    <1>布尔类型检查
+    ASSERT_TRUE(condition)  ASSERT_FALSE(condition)
+    <2>数值类型检查
+    ASSERT_EQ(expected, actual);
+    ASSERT_NE(val1, val2);
+    ASSERT_LT(val1, val2);
+    ASSERT_LE(val1, val2);
+    ASSERT_GT(val1, val2);
+    ASSERT_GE(val1, val2);
+    <3>字符串检查
+    ASSERT_STREQ(expected_str, actual_str);
+    ASSERT_STRNE(str1, str2);
+    ASSERT_STRCASEEQ(expected_str, actual_str);
+    ASSERT_STRCASENE(str1, str2);

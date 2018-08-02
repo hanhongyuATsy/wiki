@@ -1,0 +1,7 @@
+﻿++ 3.学习记录
+1. 缩进为python的语法，缩进错误会报unexpected indent 错误
+2. 没有类型，使用时需注意类型，即字符中是否有空格
+3. os.system(cmd) 只返回成功或失败；os.popen(cmd).readline()可以返回执行结果
+4.  一行字符分隔用 xx = line.split(',')；再取其中元素xx[2]
+5. 文件读写用f.read()和f.write()
+6. open问件后要记得close();

@@ -1,0 +1,9 @@
+﻿++ iic
+
+1.i2c-driver linux:
+    a.i2c_core(algorithm)
+    b.i2c_bus_driver
+        适配器数据结构（i2c_adapter）
+        Algorithm数据结构	(i2c_algorithm)
+        通信信号函数
+    c.i2c_device_driver(i2c_client)

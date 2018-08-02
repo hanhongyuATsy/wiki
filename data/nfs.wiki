@@ -1,0 +1,6 @@
+﻿++ nfs
+
+e. NFS使用：
+    1.配置文件： /etc/exports
+    2.开启服务： service nfs-kernel-server start
+    3.挂载命令： mount -t nfs 127.0.0.1 :/home/hhy/nfs/  /mnt

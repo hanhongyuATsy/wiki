@@ -1,0 +1,12 @@
+﻿++ 包管理器
+
+d. apt 包管理器使用：
+    1.apt-cache search softname 搜索软名
+    2.aptitude  解决ubuntu 包依赖
+    3.dpkg 查看信息
+    4.apt-file search libz.s 查找库支持
+    5.包依赖问题：
+        a. source.list 有问题
+        b. aptitupe install ， 先选n 再选1
+    6. apt-file xxx.h找到依赖库
+h. snap 新的包管理命令

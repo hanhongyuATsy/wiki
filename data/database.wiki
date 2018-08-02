@@ -1,0 +1,42 @@
+﻿++ database
+
+目标：
+    １．了解数据库基本常识；　sql语句，　常见嵌入式数据
+    ２．了解数据库常见使用方法；包括增删改查；
+    ３．调试数据库数据，明白数据库内部表的结构
+
+基础：
+    1. 数据抽象：物理抽象、概念抽象、视图级抽象,内模式、模式、外模式　　？？？
+    视图：是一种虚拟的表，具有和物理表相同的功能。
+    内模式：又称存储模式，对应于物理级，它是数据库中全体数据的内部表示或底层描述，是数据库最低一级的逻辑描述
+    外模式：又称子模式，对应于用户级。它是某个或某几个用户所看到的数据库的数据视图，是与某一应用有关的数据的逻辑表示
+    模式：又称概念模式或逻辑模式，对应于概念级。它是由数据库设计者综合所有用户的数据，按照统一的观点构造的全局逻辑结构，
+    是对数据库中全部数据的逻辑结构和特征的总体描述，是所有用户的公共数据视图(全局视图)
+    2. SQL语言包括　数据定义、数据操纵(Data Manipulation),数据控制(Data Control)
+    数据定义：Create Table,Alter Table,Drop Table, Craete/DropIndex等
+    数据操纵：Select ,insert,update,delete,
+    数据控制：grant,revoke,commit,rollback
+    3.数据库表: 一个数据库通常包含一个或多个表
+    4.SQL 语句:
+    a.SQL 对大小写不敏感：SELECT 与 select 是相同的。
+    b.[SQL常用命令]：
+    c.MySQL命令终止符为分号 (;)
+    d.空值问题：NULL 与任何数计算都为空；空值不是空 null!=null;虑空函数nul(a, b),当a为空时返回b;
+    e.语句命令不能缩写；
+    f.select 查询日期；
+    5.过滤和排序：where ENAME like "S%";
+    6.orderby子句；orderby xxx yyy desc;
+    
+    
+使用：
+    1. mysql 安装：apt install mysql-server；　
+    2. 创建root用户的密码：mysql -u root -p；
+    3. 创建数据库： create database runoob;
+    4. 使用数据库：use runoob;
+    5. 创建数据表：CREATE TABLE table_name (column_name column_type);
+    6. 显示有哪些表：show tables;
+    7. 显示表格式信息：desc runoob_tbl;
+    8. 读取数据表：select * from runoob_tbl;
+    9. 查询时按时间排序：SELECT * from runoob_tbl ORDER BY submission_date ASC;
+    10. set linesize 150; set pagesize 40;
+    11. 清屏：host cls

@@ -1,0 +1,6 @@
+﻿++ 1. 新建/重名/删除(远程本地)分支
+
+1.git branch + branchname新建分支
+2.git branch -m old-branchname new-branchname重命名分支
+3.git branch -d branchname删除本地分支
+4.git push origin --delete branchname删除远程分支

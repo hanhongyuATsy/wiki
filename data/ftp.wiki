@@ -1,0 +1,9 @@
+﻿++ ftp
+
+1. 启动服务：
+    启动ftp命令#service vsftpd start
+    停止ftp命令#service vsftpd stop
+    重启ftp命令#service vsftpd restart
+2. ftp 配置文件位于/etc/vsftp/ 目录
+3. ftp 服务开启后， 新建的用户可以用ftp 登录服务器，登录的目录为ftp用户的根目录
+4. ftp 登录服务器，同其他普通用户一样，只是登录后无法进入shell，而更方便用于文件传输

@@ -1,0 +1,7 @@
+﻿++ 常见配置
+
+1.Ubuntu子系统代理设置：/etc/apt/apt.conf
+Acquire::http::proxy "http://172.17.18.80:8080/";
+Acquire::https::proxy "https://172.17.18.80:8080/";
+Acquire::ftp::proxy "ftp://172.17.18.80:8080/";
+2.常见用户文件位置C:\Users\HHY\AppData

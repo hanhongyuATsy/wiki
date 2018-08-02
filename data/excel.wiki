@@ -1,0 +1,7 @@
+﻿++ excel
+
+1. 将文件保存为（a, b, c,d）的形式，并后缀名改为.csv,可以直接用execl打开
+2. execl 可以点击顶端而选择整列
+3. execl 可以导出为csv格式，以逗号分隔的文件
+4. 截取字符函数=mid 
+5. execl 同行内换行 alt + enter

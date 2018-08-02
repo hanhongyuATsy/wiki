@@ -1,0 +1,18 @@
+﻿++ 1.日常命令
+1. alias 设置别名
+2. modprobe 模块名  insmod 模块名
+3. zcat 查看压缩文件内容
+4. nautilus 
+5. ./configure --help 查看支持
+6. fdformat  低级格式化
+7. md5sum 
+8. cp -a 拷贝链接
+9. ldd 查看命令含哪些动态库
+10. nm -D xxx.so 查看*.so中的符号
+11.string *.so |grep GLIB
+12. hdparm -I /dev/sdb
+13. date  date -s 2018-02-01T15:34:56-0000
+14. find 查找文件 ：find 
+15. alt .  shell的上一个变量
+16. [echo]
+17. hostname -I  查看IP；

@@ -1,0 +1,20 @@
+﻿++ e. gcov , locv 介绍
+1.概述：Gcov是进行代码运行的覆盖率统计的工具;lcov是GCOV图形化的前端工具;
+    主要使用.gcno和.gcda两个文件; 解决测试度量的问题
+2. 构建：
+    1）编译阶段：加入编译选项gcc –o hello –fprofile-arcs –ftest-coverage hello，生成记录程序流程图等信息
+    2）数据收集与提取阶段：./hello，生成具体的运行信息hello.gcda。
+    3）生成数据报告: gcov  hello.c
+3. 命令：
+    gcov --help
+    cmake ../ -DENABLE_GCOV=1 (使用宏管理)
+4.使用方法：
+    a) 重置计数器
+    lcov --directory . --zerocounters
+    b) 收集当前代码覆盖状态到一个文件（应用程序启动和停止至少一次后，该命令才能正常工作）
+    lcov --directory . --capture --output-file app.info
+    c) 获取 HTML 输出
+    genhtml -o results app.info
+5.错误处理:  undefined reference to `__gcov_init
+
+

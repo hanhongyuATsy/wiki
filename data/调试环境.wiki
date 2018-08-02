@@ -1,0 +1,33 @@
+﻿++ 调试环境
+
+https://www.jianshu.com/p/44d31327f953
+1. 安装vim的插件管理器vundle;
+    step 1:下载并安装Vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    setp2: 编辑.vimrc
+    call vundle#begin()
+    Plugin 'plasticboy/vim-markdown'
+    call vundle#end()
+    setp3:插件安装
+    :PluginInstall
+    
+2. vim-instant-markdown插件
+    安装新版的node.js:
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
+    安装完node.js之后安装instant-markdown-d
+    sudo npm -g install instant-markdown-d
+    sudo apt-get install npm
+    npm代理设置：
+    npm config set proxy http://server:port
+    npm config set https-proxy http://server:port
+    npm代理查看：
+    npm config list
+    在vim配置文件中添加：
+    Plugin 'suan/vim-instant-markdown'
+    :PluginInstall
+3.markdonw 转html:
+    sudo apt-get install discount;
+    用discount提供的markdown工具：　markdown -o Release-Notes.html Release-Notes.md
+4.vscode 自带markdown环境

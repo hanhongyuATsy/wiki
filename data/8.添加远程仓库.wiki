@@ -1,0 +1,16 @@
+﻿++ 8.添加远程仓库
+
+1.git config --global user.name "李 瑞敏"
+2.git config --global user.email "Lirm@travelsky.com"
+3.git clone ssh://git@rdgit.travelsky.com:7999/dfare/cache.git
+
+cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin ssh://git@rdgit.travelsky.com:7999/dfare/cache.git
+git push -u origin master
+
+cd existing-project
+git remote set-url origin ssh://git@rdgit.travelsky.com:7999/dfare/cache.git
+git push -u origin master

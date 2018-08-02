@@ -1,0 +1,5 @@
+﻿++ ssh
+
+1. ssh-keygen -t rsa 命令 ,在/home/hhy/.ssh/ 目录生成秘钥
+2. ssh-copy-id -i ~/.ssh/id_rsa.pub dss@10.164.194.42， 将公钥文件传输的远程机器
+3. 再次登录可以免密码

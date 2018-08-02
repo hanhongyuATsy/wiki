@@ -1,0 +1,20 @@
+﻿++ 5.Wi Fi驱动
+
+1.检查无线网卡wlan0 是否正常：
+    a.ifconfig -a
+    b. insmod 8723.ko
+    c. route  add default gw 192.168.0.1  
+    d. route 查看路由表
+    e. tarceroute www.baidu.com 追棕地址 
+    f. echo "192.168.0.1" >> /etc/resolv.conf
+2.wpa 工具使用:
+    a.iwlist wlan0 scan
+    b.wpa_passphrase happy_year 12345 >> aa.passwd
+    c.wpa_supplicant -B iwlan0 -Dwext -c aa.passwd
+    d.udhcpc -i wlan0
+3.ubuntu 网络 配置文件:
+    a./etc/resolv.conf
+    b./etc/network/interfaces
+    c.sudo apt-get install vsftpd
+    d.sudo /etc/init.d/vsftpd start
+    e.telnet 和ftp 都由inetd 开启和维护

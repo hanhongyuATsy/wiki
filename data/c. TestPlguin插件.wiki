@@ -1,0 +1,6 @@
+﻿++ c. Test Plguin插件
+1. 原理：setup 前记录内存使用情况，teardown
+    后记录另一个内存使用情况，gcc new/delete 计数
+2. 构建：
+    编译选项添加
+    MEMFLAGS = -include $(CPPUTEST_HOME)/include/CppUTest/MemoryLeakDetectorMallocMacros.h

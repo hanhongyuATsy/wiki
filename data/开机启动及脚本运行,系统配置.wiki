@@ -1,0 +1,19 @@
+﻿++ 开机启动及脚本运行,系统配置
+
+c. 开机脚本 /etc/rc.local
+    开机启动服务 /etc/init.d/
+    命令 ：update-rc.d 
+    1.启动脚本copy到/etc/init.d 目录
+    2.设置脚本权限
+    3.将脚本加入启动脚本中 sudo update-rc.d test defaults 95
+f. 开机顺序：
+    1. 系统上电， BIOS 引导GRUB 引导kernel
+    2. kerenl 执行 initrd 运行硬件初始化和自身初始化
+    3. 启动pid = 1 进程， 即 upstart 进程
+    4. upstart 执行的初始化，发送statrup 事件
+    5. mount 文件系统 发出三个event
+    6. virtal-filesder,触发udev开始
+    7. udev ->rc-sysinit ->/etc/init/rc.conf
+    8.rc.conf 执行/etc/rc.d/ 脚本
+b. /etc/mtab 当前挂载的文件系统
+g. /etc/network/interfaces 只剩下两行lo即可， b不用配置eth0

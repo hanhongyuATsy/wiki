@@ -1,0 +1,7 @@
+﻿++ 3. 文件名截取与类型判断
+
+1.截取/后名字 :echo ${DIFF_FULL_NAME##*/}
+2.截取/前路径 :echo ${DIFF_FULL_NAME%/*}
+3.测试为文件类型:if test -f $file
+4.测试为路径名:if test -d $file
+5.截取包含某个字符的字符串：

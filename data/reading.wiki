@@ -1,0 +1,5 @@
+﻿++ reading
+
+[apue]
+[codecomplete]
+[the pragmatic programmer]

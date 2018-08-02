@@ -1,0 +1,7 @@
+﻿++ echo
+
+1.显示普通字符串: echo "It is a test"
+2.显示转义字符:echo "\"It is a test\""
+3.显示变量 echo “$name”
+4.显示结果定向至文件 echo $name >> xx.txt
+5.显示命令执行结果:echo `date`

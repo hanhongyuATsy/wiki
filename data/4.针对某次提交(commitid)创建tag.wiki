@@ -1,0 +1,3 @@
+﻿++ 4.针对某次提交(commitid)创建tag
+
+git tag -a "v1.1" commitid -m "v1.1"

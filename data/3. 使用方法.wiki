@@ -1,0 +1,20 @@
+﻿++ 3. 使用方法
+
+1. gcc 选项 -g
+2. 启动方法
+    1. gdb <program>
+    2. gdb <program> core
+    3. gdb <program> <PID>
+3.无法生成core文件， 使用ulimit -c 查看大小
+    使用ulimit -c unlimited； ulimmit -c 1024; core 文件大于1024仍然无法生成！！！！
+4.调试：gdb main core.xxx
+        run 
+        bt  
+        调试进程：
+        gdb attch PID;
+        stop 暂停进程；
+        b fun_name() ；设置断点；
+        c 运行；
+        s 进入函数；
+
+

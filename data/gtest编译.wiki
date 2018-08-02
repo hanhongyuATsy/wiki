@@ -1,0 +1,3 @@
+﻿++ gtest编译
+
+1.可以不写main函数，直接在编译的时候链接libgtest_main.a库

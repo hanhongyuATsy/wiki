@@ -1,0 +1,5 @@
+﻿++ 窗口
+    1. res  N  改窗口高度为N
+    2. vertical res N 改宽度为N
+    3. vs   打开一个竖行窗口
+    4. res + N 改窗口高度加N

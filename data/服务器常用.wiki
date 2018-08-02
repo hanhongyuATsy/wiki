@@ -1,0 +1,6 @@
+﻿++ 服务器常用
+
+1.服务器拷贝：scp [参数] [原路径] [目标路径]
+scp -r dprice.tar.gz rdtfare@10.221.148.95:/home/rdtfare/rdhhy/ 本地考服务器
+2.查看用户使用情况：w
+3.su -c "yum install cmake"

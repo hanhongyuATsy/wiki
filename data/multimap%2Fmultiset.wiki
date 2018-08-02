@@ -1,0 +1,5 @@
+﻿++ multimap/multiset
+1.允许一个键对应多个实例
+2.lower_bound/upper_bound:返回一个迭代器指示键值关联的所有元素的开始和结束的下一个位置
+3.equal_range:返回pair对象，两个元素分为迭代器的第一个实例，和最后一个实例的下一个位置
+

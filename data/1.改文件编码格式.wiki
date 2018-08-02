@@ -1,0 +1,115 @@
+﻿++ 1.改文件编码格式
+#!/usr/bin/env python  
+# _*_ coding:utf-8 _*_  
+#  
+# @python version : 3.6.4
+# @FileVersion : 0.9
+# @Time    : 2018/4/28
+# @Author  : xudonglei@  
+# @File    : ToUTF8.py  
+#  
+# 将文本文件的编码转换为utf-8，二进制文件直接复制
+
+
+import os
+import sys
+import chardet
+import codecs
+import shutil
+
+#ues for recording failure in converting ro utf-8
+G_failFiles=[]
+
+		
+def ConvertSourcecode(source,dist,fileName):
+	file=os.path.join(source,fileName)
+	f = open(file,"rb")  
+	data = f.read(1024*1024)
+	f.close()
+	ec=chardet.detect(data)['encoding']
+	if(None!=ec):
+		try:
+			fi = open(file,"rb")
+			data = fi.read().decode(ec,'ignore')
+			fi.close()
+			data.encode('utf-8')
+			distFile=os.path.join(dist,fileName)
+			fo = codecs.open(distFile, "w","UTF-8")
+			fo.write(data)
+			fo.close()
+			print('rewrite:['+file+"]to["+distFile+"]")
+		except :
+			try:
+				fi = open(file,"rb")
+				data = fi.read().decode('gb18030','ignore')
+				fi.close()
+				
+				data.encode('utf-8')
+				distFile=os.path.join(dist,fileName)
+				fo = codecs.open(distFile, "w","UTF-8")
+				fo.write(data)
+				fo.close()
+			except Exception as e:
+				print("!!!!!!TRY!!!!!")
+				G_failFiles.append(file+"[[[[[[["+str(e)+"]]]]]]]")
+	else:
+		print("!!!!!ERROR!!!!!")
+		
+def Convert(source,dist,fileName):
+	file=os.path.join(source,fileName)
+	if os.path.exists(dist):
+		pass
+	else:
+		os.makedirs(dist)
+
+	tmp=os.path.splitext(file);
+	name=tmp[0]
+	ex=tmp[1]
+	if(".cc"==ex or ".h"==ex or ".hpp"==ex or ".cpp"==ex or ".c"==ex):
+		ConvertSourcecode(source,dist,fileName)
+	else:
+		if(".o"==ex):
+			print('ignore:['+file+"]")
+		else:
+			f = open(file,"rb")  
+			data = f.read(1024*1024)
+			f.close()
+			if(None==chardet.detect(data)['encoding']):
+				distFile=os.path.join(dist,fileName)
+				shutil.copyfile(file,distFile)
+				print('copy:['+file+"]to["+distFile+"]")
+			else:
+				ConvertSourcecode(source,dist,fileName)
+	
+def Walk(source,dist):
+	for ford in os.listdir(source):
+		file= os.path.join(source,ford)
+		if os.path.isfile(file):
+			Convert(source,dist,ford)
+		if(os.path.isdir(file)):
+			Walk(file,os.path.join(dist,ford))
+
+# 需要两个参数
+# sys.argv[1] 为源文件文件夹
+# sys.argv[2] 为目标文件夹
+# 本程序会对源文件文件夹下的所有文件及其子文件下的所有文件进行如下操作
+# 1.如果是【文件夹】则在目标文件夹下创建同名文件夹
+# 2.如果是【文本文件】则转为utf-8编码在目标文件夹对应位置下创建并保存
+# 3.如果是【非文本文件】则直接复制到目标文件夹对应位置下
+#
+#
+# 使用实例 python ToUTF8.python D:\Projects\GitProject\DPrice D:\Projects\GitProject\DPriceUTF8
+
+
+if __name__ == '__main__':
+	sourceDir=sys.argv[1]
+	distDir=sys.argv[2]
+	print("hehe")
+	print(sourceDir)
+	print(distDir)
+	Walk(sourceDir,distDir)
+	
+	print(str(len(G_failFiles))+"failFiles are:")
+	for f in G_failFiles:
+		print(f)
+	print("hehe---Finish----hehe")

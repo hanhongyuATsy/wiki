@@ -1,0 +1,6 @@
+﻿++ arm
+[uboot]
+[freescale]
+[硬件总线]
+[lvds移植]
+[学习网站]

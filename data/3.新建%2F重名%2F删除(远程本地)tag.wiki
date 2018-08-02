@@ -1,0 +1,8 @@
+﻿++ 3.新建/重名/删除(远程本地)tag
+
+1.git tag +tagname 新建一个tag
+2.git push origin <tagname>可以推送一个本地标签
+3.git push origin --tags可以推送全部未推送过的标签
+4.git tag -d <tagname>可以删除一个本地标签
+5.git push origin :refs/tags/<tagname>可以删除一个远程标签
+

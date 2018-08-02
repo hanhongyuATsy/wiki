@@ -1,0 +1,5 @@
+﻿++ 学习网站
+
+跟我一起写操作系统：http://www.cnblogs.com/helloweworld/p/4846119.html
+环境搭建：http://tinylab.org/using-linux-lab-to-do-embedded-linux-development/
+http://tinylab.org/linux-lab/

@@ -1,0 +1,4 @@
+﻿++ 命令
+
+1. bootz 命令使用(bootz  ${loadaddr} - ${fdtaddr}; )
+2. 引导设置：

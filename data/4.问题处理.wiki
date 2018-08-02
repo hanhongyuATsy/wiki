@@ -1,0 +1,4 @@
+﻿++ 4.问题处理
+a. 工具使用：lcov out of memery！ error   lcov版本问题 
+b. 有测试部人员，测试应该是他们要做的事-- 软件工程 白盒测试
+c. 使用cpputest 提供的宏，断言， 和自己写个demo测试有什么区别

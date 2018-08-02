@@ -1,0 +1,6 @@
+﻿++ 1.kernel
+
+1. /driver/bluetooth   修改ＣＯＮＩＦＩＧ　ＭＡＫＥＦＩＬＥ
+2. imax6q 的uart4 rts/cts 是否使用起来??  rts 脚没有使用起来，ＲＴＳ低有效
+3. 4.9kernel 无法编译通过?? 代码添加到内核可以编译通过，h5sync error!!
+4. uart 有输出，无输入，　蓝牙芯片没工作  1.蓝牙使能脚高有效,

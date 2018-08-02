@@ -1,0 +1,11 @@
+﻿++ design patterns
+学习地址：
+面向对象设计的6个原则: https://www.cnblogs.com/rainwang/p/4159871.html
+C 语言设计模式：https://blog.csdn.net/feixiaoxing/article/category/951264
+１.[简单工厂模式]
+２.[策略模式]
+３.[6个原则]
+4. [装饰模式]
+5. [代理模式]
+1.[设计模式定义]
+2.[自己理解]

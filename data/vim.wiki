@@ -1,0 +1,13 @@
+﻿++ vim
+[改窗口]
+[改大小]
+[打开文件]
+1.折叠命令   zo  ; zc  ; 空格; 所在范围所有折叠展开 ，zO
+2.格式对齐   gg = G
+3.新建页     new , vnew
+4.强制保存   w! sudo tee % 
+5.替换字符：%s/dir_full_name/new_name/g 替换所有的dif_full_name为new_name
+    s/dir_full_name/new_name/g 替换一行中的dif_full_name为new_name
+6.删除行尾的^M：%s/\r//g
+7.查看编码：　:set fileencoding
+8.转换编码：　:set fileencoding=utf-8

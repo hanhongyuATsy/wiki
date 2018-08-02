@@ -1,0 +1,6 @@
+﻿++ 1.操作设备方法
+
+1. /dev/ 创建设备文件
+2. /proc/ /sys/ 下文件可以直接访问gpio
+3. lisusb库 通过usb PID VID 访问
+4. cat /dev/video0 > /home/hhy/sss.jpg  捕获图片

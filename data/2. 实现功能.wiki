@@ -1,0 +1,16 @@
+﻿++ 2. 实现功能
+
+1.出现段错误时查看core文件
+  1.nm 查看符号表
+  2.dmesg 看log
+  3.ldd
+  4.objdump
+  5.catchsegv
+
+
+
+
+
+
+
+2. 查看变量值

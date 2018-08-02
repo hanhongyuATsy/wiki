@@ -1,0 +1,13 @@
+﻿++ 3.泛型算法结构
+
+1.形参模式：
+    alg(beg, end, other parms);
+    alg(beg, end, dest, other parms);
+    alg(beg, end, beg2, other parms);
+    alg(beg, end, beg2, end2, other parms);
+2.带有单个目标的dest和带有第二个beg2的算法是假定了容器有足够多个需要的元素
+3.是否实现复制用_copy版本
+4.容器特有算法：
+    list由于没有随机访问迭代器，所有不能用sort算法；
+    对应list对象应该优先用list容器特有算法，而不是泛型算法；
+
